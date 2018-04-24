@@ -13,5 +13,5 @@ setup(
     license='MIT',
     packages=find_packages(),
     package_data={},
-    install_requires=["flask_restful"],
-
+    install_requires=["flask_restful"]
+    )
