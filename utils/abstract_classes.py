@@ -8,7 +8,7 @@ class Bot(Resource):
     def __init__(self, bot_name):
         self.response = Response()
         self.response.bot_name = bot_name
-        self.response.locked_requested = False
+        self.response.lock_requested = False
 
 
 class Response(object):
@@ -16,7 +16,7 @@ class Response(object):
         if not json_data:
             self.result = None
             self.bot_name = None
-            self.locked_requested = False
+            self.lock_requested = False
             self.bot_params = {}
         else:
             self.__dict__ = json_data
