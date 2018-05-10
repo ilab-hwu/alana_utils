@@ -12,36 +12,48 @@ class Bot(Resource):
 
 
 class Response(object):
-    def __init__(self):
-        self.result = None
-        self.bot_name = None
-        self.locked_requested = False
-        self.bot_params = {}
-
-    # def __call__(self, *args, **kwargs):
-
+    def __init__(self, json_data=None):
+        if not json_data:
+            self.result = None
+            self.bot_name = None
+            self.locked_requested = False
+            self.bot_params = {}
+        else:
+            self.__dict__ = json_data
 
     def toJSON(self):
         # Placeholder to add more preprocessing here if we need to
         return self.__dict__
+
+    def __str__(self):
+        return str(self.__dict__)
 
     class BotAttributes:
         """
         Deserialize bot_attributes json
         TODO: Not yet implemented
         """
-        def __init__(self, j):
-            self.__dict__ = json.loads(j)
+        def __init__(self, json_data):
+            self.__dict__ = json.loads(json_data)
+        
+        def toJSON(self):
+            return self.__dict__
+        
+        def __str__(self):
+            return str(self.__dict__)
 
 
 
 class UserAttributes(object):
-    def __init__(self):
-        self.user_id = None
-        self.user_name = None
-        self.preferences = {}
-        self.dislikes = {}
-        self.last_sessionID = None
+    def __init__(self, json_data=None):
+        if not json:
+            self.user_id = None
+            self.user_name = None
+            self.preferences = {}
+            self.dislikes = {}
+            self.last_sessionID = None
+        else:
+            self.__dict__ = json_data
 
     def toJSON(self):
         # Placeholder to add more preprocessing here if we need to
