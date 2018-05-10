@@ -46,7 +46,7 @@ class Response(object):
 
 class UserAttributes(object):
     def __init__(self, json_data=None):
-        if not json:
+        if not json_data:
             self.user_id = None
             self.user_name = None
             self.preferences = {}
