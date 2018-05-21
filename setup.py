@@ -4,9 +4,9 @@ from setuptools import find_packages
 
 setup(
     name='utils',
-    version='0.0.1',
+    version='0.0.2',
     description='Common helper functions for Alana bots',
-    author='Ondrej Dusek, Ioannis Papaioannou',
+    author='Ondrej Dusek, Ioannis Papaioannou, Alessandro Suglia',
     author_email='ipapaioannou83@gmail.com',
     url='https://github.com/WattSocialBot/utils',
     download_url='https://github.com/WattSocialBot/utils.git',
