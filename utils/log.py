@@ -15,3 +15,17 @@ def get_short_git_version(path='.'):
     shorthash, ts = data.split('-')
     date = datetime.datetime.fromtimestamp(int(ts)).strftime('%Y-%m-%d-%H%M')
     return '%s-%s' % (shorthash, date)
+
+
+def log_setup(level, logfile):
+    if isinstance(level, str):
+        level = LOG_LEVELS[level]
+    logging.basicConfig(level=level,
+                        format='%(asctime)s [%(levelname)8s]: %(message)s',
+                        handlers=[
+                            logging.FileHandler(logfile),
+                            logging.StreamHandler(),
+                        ],
+                        datefmt='%y-%m-%d %H:%M:%S',)
+
+
