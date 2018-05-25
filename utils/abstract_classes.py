@@ -17,6 +17,7 @@ class Response(object):
         self.bot_version = None
         self.lock_requested = False
         self.bot_params = {}
+        self.user_attributes = {}
 
         if json_data:
             self.__dict__.update(json_data)
@@ -28,19 +29,19 @@ class Response(object):
     def __str__(self):
         return str(self.__dict__)
 
-    class BotAttributes:
-        """
-        Deserialize bot_attributes json
-        TODO: Not yet implemented
-        """
-        def __init__(self, json_data):
-            self.__dict__ = json.loads(json_data)
-
-        def toJSON(self):
-            return self.__dict__
-
-        def __str__(self):
-            return str(self.__dict__)
+    # class BotAttributes:
+    #     """
+    #     Deserialize bot_attributes json
+    #     TODO: Not yet implemented
+    #     """
+    #     def __init__(self, json_data):
+    #         self.__dict__ = json.loads(json_data)
+    #
+    #     def toJSON(self):
+    #         return self.__dict__
+    #
+    #     def __str__(self):
+    #         return str(self.__dict__)
 
 
 
@@ -49,8 +50,8 @@ class UserAttributes(object):
         if not json_data:
             self.user_id = None
             self.user_name = None
-            self.preferences = {}
-            self.dislikes = {}
+            self.preferences = []
+            self.dislikes = []
             self.last_sessionID = None
         else:
             self.__dict__ = json_data

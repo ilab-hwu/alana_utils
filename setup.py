@@ -4,7 +4,7 @@ from setuptools import find_packages
 
 setup(
     name='utils',
-    version='0.0.2',
+    version='0.0.3',
     description='Common helper functions for Alana bots',
     author='Ondrej Dusek, Ioannis Papaioannou, Alessandro Suglia',
     author_email='ipapaioannou83@gmail.com',
