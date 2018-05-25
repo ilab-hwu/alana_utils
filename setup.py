@@ -12,6 +12,6 @@ setup(
     download_url='https://github.com/WattSocialBot/utils.git',
     license='MIT',
     packages=find_packages(),
-    package_data={},
+    package_data={'utils': ['profanities/*.txt']},
     install_requires=["flask_restful"]
     )
