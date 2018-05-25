@@ -5,21 +5,21 @@ from utils.dict_query import DictQuery
 
 
 class Bot(Resource):
-    def __init__(self, bot_name):
-        self.response = Response()
-        self.response.bot_name = bot_name
-        self.response.lock_requested = False
+
+    def __init__(self, bot_name, bot_version=None):
+        self.response = Response({'bot_name': bot_name, 'bot_version': bot_version})
 
 
 class Response(object):
     def __init__(self, json_data=None):
-        if not json_data:
-            self.result = None
-            self.bot_name = None
-            self.lock_requested = False
-            self.bot_params = {}
-        else:
-            self.__dict__ = json_data
+        self.result = None
+        self.bot_name = None
+        self.bot_version = None
+        self.lock_requested = False
+        self.bot_params = {}
+
+        if json_data:
+            self.__dict__.update(json_data)
 
     def toJSON(self):
         # Placeholder to add more preprocessing here if we need to
@@ -35,10 +35,10 @@ class Response(object):
         """
         def __init__(self, json_data):
             self.__dict__ = json.loads(json_data)
-        
+
         def toJSON(self):
             return self.__dict__
-        
+
         def __str__(self):
             return str(self.__dict__)
 
